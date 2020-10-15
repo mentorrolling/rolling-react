@@ -4,6 +4,11 @@
   background: url("../images/stars.svg"), #1b1b25;
   background-repeat: repeat;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.Badges__hero img {
+  height: 150px;
 }
 
 .Badges__hero > .Badges__container {

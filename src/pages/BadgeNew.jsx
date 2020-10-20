@@ -1,28 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../component/Navbar";
 import Badge from "../component/Badge";
-
-import Logo from "../images/logo-mac.png";
-import "../css/badges.css";
+import BadgeForm from "../component/BadgeForm";
+import BadgeHero from "../component/BadgeHero";
 
 export default function BadgeNew() {
+  const [state, setState] = useState({
+    form: {},
+  });
+
+  const handleChange = (e) => {
+    setState({
+      form: {
+        ...state.form,
+        [e.target.name]: e.target.value,
+      },
+    });
+  };
+
   return (
     <div>
       <Navbar />
-      <div className="Badges__hero">
-        <img src={Logo} alt="Imagen de logo rolling" />
-      </div>
+      <BadgeHero />
 
       <div className="container">
         <div className="row mb-3">
           <div className="col-6">
             <Badge
-              firstName="Daniel"
+              firstName={state.form.firstName}
               lastName="Gonzalez"
               jobTitle="Hacker de la red"
               twitter="hackermarino"
               avatarUrl="http://1.gravatar.com/avatar/2bd6474c77fd501924adfa0aae631f57"
             />
+          </div>
+          <div className="col-6">
+            <BadgeForm handleChange={handleChange} />
           </div>
         </div>
       </div>

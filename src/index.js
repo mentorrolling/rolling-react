@@ -11,7 +11,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 // import Badge from "./component/Badge";
-import BadgeNew from "./pages/BadgeNew";
+//import BadgeNew from "./pages/BadgeNew";
+//import Counter from "./hooks/Counter";
+import Badges from "./pages/Badges";
 
 import "./global.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -20,14 +22,4 @@ import "bootstrap/dist/css/bootstrap.css";
 const container = document.getElementById("root");
 
 // ReactDOM.render(_que_,_donde_)
-ReactDOM.render(
-  // <Badge
-  //   firstName="Daniel"
-  //   lastName="Gonzalez"
-  //   jobTitle="Hacker de la red"
-  //   twitter="hackermarino"
-  //   avatarUrl="http://1.gravatar.com/avatar/2bd6474c77fd501924adfa0aae631f57"
-  // />,
-  <BadgeNew />,
-  container
-);
+ReactDOM.render(<Badges />, container);

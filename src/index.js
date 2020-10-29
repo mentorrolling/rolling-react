@@ -13,7 +13,8 @@ import ReactDOM from "react-dom";
 // import Badge from "./component/Badge";
 //import BadgeNew from "./pages/BadgeNew";
 //import Counter from "./hooks/Counter";
-import Badges from "./pages/Badges";
+//import Badges from "./pages/Badges";
+import App from "./component/App";
 
 import "./global.css";
 import "bootstrap/dist/css/bootstrap.css";
@@ -22,4 +23,4 @@ import "bootstrap/dist/css/bootstrap.css";
 const container = document.getElementById("root");
 
 // ReactDOM.render(_que_,_donde_)
-ReactDOM.render(<Badges />, container);
+ReactDOM.render(<App />, container);

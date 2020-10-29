@@ -28,9 +28,9 @@ export default function BadgeNew() {
           <div className="col-6">
             <Badge
               firstName={state.form.firstName}
-              lastName="Gonzalez"
-              jobTitle="Hacker de la red"
-              twitter="hackermarino"
+              lastName={state.form.lastName}
+              jobTitle={state.form.jobTitle}
+              twitter={state.form.twitter}
               avatarUrl="http://1.gravatar.com/avatar/2bd6474c77fd501924adfa0aae631f57"
             />
           </div>

@@ -19,8 +19,7 @@ export default function BadgeNew() {
   };
 
   return (
-    <div>
-      <Navbar />
+    <>
       <BadgeHero />
 
       <div className="container">
@@ -39,6 +38,6 @@ export default function BadgeNew() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

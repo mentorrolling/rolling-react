@@ -3,7 +3,7 @@ import "../css/badge_list.css";
 
 export default function BadgeList({ data }) {
   return (
-    <div ClassName="BadgesList">
+    <div className="BadgesList">
       <ul>
         {data.map((badge) => {
           return (

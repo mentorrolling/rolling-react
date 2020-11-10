@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Badges from "../pages/Badges";
 import BadgeNew from "../pages/BadgeNew";
 import Home from "../pages/Home";
+import NotFound from "../pages/NotFound";
 
 //importacion de NotFound
 
@@ -16,7 +17,7 @@ export default function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/badges" component={Badges} />
           <Route exact path="/badges/new" component={BadgeNew} />
-          {/* <Route component={NotFound} /> */}
+          <Route component={NotFound} />
         </Switch>
       </Layout>
     </BrowserRouter>

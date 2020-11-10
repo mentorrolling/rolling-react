@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../component/Navbar";
+
 import Badge from "../component/Badge";
 import BadgeForm from "../component/BadgeForm";
 import BadgeHero from "../component/BadgeHero";

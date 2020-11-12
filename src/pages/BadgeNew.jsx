@@ -6,7 +6,13 @@ import BadgeHero from "../component/BadgeHero";
 
 export default function BadgeNew() {
   const [state, setState] = useState({
-    form: {},
+    form: {
+      firstName: "",
+      lastName: "",
+      jobTitle: "",
+      twitter: "",
+      email: "",
+    },
   });
 
   const handleChange = (e) => {
@@ -26,15 +32,16 @@ export default function BadgeNew() {
         <div className="row mb-3">
           <div className="col-6">
             <Badge
-              firstName={state.form.firstName}
-              lastName={state.form.lastName}
-              jobTitle={state.form.jobTitle}
-              twitter={state.form.twitter}
+              firstName={state.form.firstName || 'FIRST_NAME'  }
+              lastName={state.form.lastName || 'LAST_NAME'}
+              jobTitle={state.form.jobTitle || 'JOB_TITLE'}
+              twitter={state.form.twitter || 'twitter'}
+              email={state.form.email}
               avatarUrl="http://1.gravatar.com/avatar/2bd6474c77fd501924adfa0aae631f57"
             />
           </div>
           <div className="col-6">
-            <BadgeForm handleChange={handleChange} />
+            <BadgeForm handleChange={handleChange} formValues={state.form} />
           </div>
         </div>
       </div>

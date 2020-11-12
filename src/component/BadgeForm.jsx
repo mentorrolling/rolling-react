@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function BadgeForm({ handleChange }) {
+export default function BadgeForm({ handleChange, formValues }) {
   //   const [state, setState] = useState({
   //     form: {},
   //   });
@@ -17,7 +17,7 @@ export default function BadgeForm({ handleChange }) {
   //   [e.target.name]: e.target.value,
   // });
   //   };
-
+console.log(formValues)
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Hiciste Submit");
@@ -34,6 +34,7 @@ export default function BadgeForm({ handleChange }) {
             className="form-control"
             onChange={handleChange}
             name="firstName"
+            value={formValues.firstName}
           />
         </div>
         <div className="form-group">
@@ -43,6 +44,7 @@ export default function BadgeForm({ handleChange }) {
             className="form-control"
             onChange={handleChange}
             name="lastName"
+            value={formValues.lastName}
           />
         </div>
         <div className="form-group">
@@ -52,6 +54,7 @@ export default function BadgeForm({ handleChange }) {
             className="form-control"
             onChange={handleChange}
             name="email"
+            value={formValues.email}
           />
         </div>
         <div className="form-group">
@@ -61,6 +64,7 @@ export default function BadgeForm({ handleChange }) {
             className="form-control"
             onChange={handleChange}
             name="jobTitle"
+            value={formValues.jobTitle}
           />
         </div>
         <div className="form-group">
@@ -70,6 +74,7 @@ export default function BadgeForm({ handleChange }) {
             className="form-control"
             onChange={handleChange}
             name="twitter"
+            value={formValues.twitter}
           />
         </div>
         <button className="btn btn-info float-right">Enviar</button>

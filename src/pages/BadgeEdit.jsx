@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Badge from "../component/Badge";
 import BadgeForm from "../component/BadgeForm";
 import BadgeHero from "../component/BadgeHero";
 
-export default function BadgeNew(props) {
+export default function BadgeEdit(props) {
+  const badgeId = props.match.params.badgeId;
+
   const [state, setState] = useState({
     form: {
       firstName: "",
@@ -14,6 +16,23 @@ export default function BadgeNew(props) {
       email: "",
     },
   });
+
+  useEffect(() => {
+    getDataId();
+  }, []);
+
+  const getDataId = async () => {
+    try {
+      const resp = await fetch(`http://localhost:3004/data?id=${badgeId}`);
+      const data = await resp.json();
+      console.log(data);
+      setState({
+        form: data[0],
+      });
+    } catch (error) {
+      console.warn(error);
+    }
+  };
 
   const handleChange = (e) => {
     setState({
@@ -26,25 +45,22 @@ export default function BadgeNew(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Hiciste Submit");
     try {
-      const resp = await fetch("http://localhost:3004/data", {
-        method: "POST",
+      const resp= await fetch(`http://localhost:3004/data/${badgeId}`, {
+        method: "PUT",
         body: JSON.stringify(state.form),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-      });
-      // const data = await resp.json();
-      // console.log(data);
+      })
+
       props.history.push('/badges')
+
 
     } catch (error) {
       console.warn(error);
     }
   };
-
- 
 
   return (
     <>

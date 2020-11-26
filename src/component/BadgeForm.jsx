@@ -1,27 +1,13 @@
 import React from "react";
 
-export default function BadgeForm({ handleChange, formValues }) {
-  //   const [state, setState] = useState({
-  //     form: {},
-  //   });
+export default function BadgeForm({ handleChange, formValues,handleSubmit }) {
+  
+// console.log(formValues)
 
-  //   const props.handleChange = (e) => {
-  //     setState({
-  //       form: {
-  //         ...state.form,
-  //         [e.target.name]: e.target.value,
-  //       },
-  //     });
-
-  // console.log({
-  //   [e.target.name]: e.target.value,
-  // });
-  //   };
-console.log(formValues)
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Hiciste Submit");
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   console.log("Hiciste Submit");
+  // };
 
   return (
     <>

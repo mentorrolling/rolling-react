@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import {Link} from 'react-router-dom';
 import Badge from '../component/Badge'
 import BadgeHero from '../component/BadgeHero'
+import Modal from "../component/Modal";
+import ModalDelete from "../component/ModalDelete";
 
 export default function BadgeDetails(props) {
     const badgeId=props.match.params.badgeId;
@@ -18,7 +20,7 @@ export default function BadgeDetails(props) {
         },
       });
 
-      const [openModal, setOpenModal]=useState(true)
+      const [openModal, setOpenModal]=useState(false)
 
       useEffect(() => {
         getDataId()
@@ -37,6 +39,13 @@ export default function BadgeDetails(props) {
         }
       };
 
+      const handleOpenModal=()=>{
+        setOpenModal(true)
+      }
+
+      const handleCloseModal=()=>{
+        setOpenModal(false)
+      }
   return (
     <>
       <BadgeHero />
@@ -58,11 +67,13 @@ export default function BadgeDetails(props) {
            <Link to={`/badges/${badgeId}/edit`} className="btn btn-info btn-lg mb-3">Editar
            </Link>
            <div>
-            <button className="btn btn-danger btn-lg">Borrar</button>
-              {openModal &&
-              
-              ReactDOM.createPortal(<h3>Soy un Portal</h3>,document.getElementById('modal'))
-              }
+            <button className="btn btn-danger btn-lg" onClick={handleOpenModal}>Borrar</button>
+             
+             {openModal && 
+             <Modal>
+              <ModalDelete handleCloseModal={handleCloseModal}/>
+             </Modal>
+            }
            </div>
           </div>
         </div>

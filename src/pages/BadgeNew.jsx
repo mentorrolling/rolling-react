@@ -63,6 +63,7 @@ export default function BadgeNew(props) {
             />
           </div>
           <div className="col-6">
+          <h1>Nuevo asistente</h1>
             <BadgeForm
               handleChange={handleChange}
               formValues={state.form}

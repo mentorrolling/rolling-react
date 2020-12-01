@@ -11,7 +11,7 @@ export default function BadgeForm({ handleChange, formValues,handleSubmit }) {
 
   return (
     <>
-      <h1>Nuevo asistente</h1>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>First Name</label>

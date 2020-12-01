@@ -12,6 +12,12 @@ export default function Badges() {
     
   });
 
+  //Estado para manejar el input para buscar
+  const [buscarBadge, setBuscarBadge]=useState({
+    nombre:''
+  })
+
+  
  useEffect(() => {
     
     getData()
@@ -33,6 +39,21 @@ export default function Badges() {
 
 
     }
+
+    //funcion para maejar cuando cambia el contenido del input
+    const handleChange=({target})=>{
+        setBuscarBadge({
+          nombre:target.value
+        })
+    }
+
+    //Filtro para los datos de la busqueda
+    const newData =data.datos.filter(badge=>{
+      return badge.firstName.toLowerCase().includes(buscarBadge.nombre.toLowerCase())
+    })
+
+    
+
     
 
   return (
@@ -50,7 +71,7 @@ export default function Badges() {
           <div className="col-6 offset-3">
               {data.loading ? <h3>Loading...</h3> :
               
-              <BadgeList data={data.datos} />
+              <BadgeList data={newData} handleChange={handleChange} buscarBadge={buscarBadge} />
               }
           
           </div>

@@ -46,6 +46,23 @@ export default function BadgeDetails(props) {
       const handleCloseModal=()=>{
         setOpenModal(false)
       }
+
+      const borrarBadge=async()=>{
+
+        try {
+          const resp= await fetch(`http://localhost:3004/data/${badgeId}`,{
+            method:'DELETE',
+          })
+          console.log('Se eliminó', resp)
+          props.history.push('/badges')
+
+        } catch (error) {
+          
+        }
+      }
+
+
+
   return (
     <>
       <BadgeHero />
@@ -71,7 +88,7 @@ export default function BadgeDetails(props) {
              
              {openModal && 
              <Modal>
-              <ModalDelete handleCloseModal={handleCloseModal}/>
+              <ModalDelete handleCloseModal={handleCloseModal} borrarBadge={borrarBadge}/>
              </Modal>
             }
            </div>

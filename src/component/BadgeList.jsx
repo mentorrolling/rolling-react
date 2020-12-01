@@ -2,9 +2,12 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import "../css/badge_list.css";
 import Gravatar from "./Gravatar";
+import SearchBadge from "./SearchBadge";
 
-export default function BadgeList({ data }) {
+export default function BadgeList({ data, buscarBadge,handleChange }) {
   return (
+    <>
+    <SearchBadge  buscarBadge={ buscarBadge} handleChange={handleChange} />
     <div className="BadgesList">
       <ul>
         {data.map((badge) => {
@@ -33,5 +36,6 @@ export default function BadgeList({ data }) {
         })}
       </ul>
     </div>
+    </>
   );
 }

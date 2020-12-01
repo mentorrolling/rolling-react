@@ -8,7 +8,7 @@ export default function ModalDelete(props) {
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header">
-            <h5 className="modal-title">Modal title</h5>
+            <h5 className="modal-title">Eliminar Badge</h5>
             <button
               type="button"
               className="close"
@@ -20,7 +20,7 @@ export default function ModalDelete(props) {
             </button>
           </div>
           <div className="modal-body">
-            <p>Modal body text goes here.</p>
+            <p>Está seguro que desea eliminar a este asistente?</p>
           </div>
           <div className="modal-footer">
             <button
@@ -31,8 +31,8 @@ export default function ModalDelete(props) {
             >
               Close
             </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
+            <button type="button" className="btn btn-primary btn-danger" onClick={props.borrarBadge}>
+             Delete
             </button>
           </div>
         </div>

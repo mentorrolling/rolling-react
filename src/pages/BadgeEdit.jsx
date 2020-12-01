@@ -79,6 +79,7 @@ export default function BadgeEdit(props) {
             />
           </div>
           <div className="col-6">
+          <h1>Editar asistente</h1>
             <BadgeForm
               handleChange={handleChange}
               formValues={state.form}

@@ -2,59 +2,47 @@ import React, { useState, useEffect } from "react";
 
 import BadgeHero from "../component/BadgeHero";
 import BadgeList from "../component/BadgeList";
-import { Link } from "react-router-dom";
+import BadgesBar from "../component/BadgesBar";
 
+import { Link } from "react-router-dom";
 
 export default function Badges() {
   const [data, setData] = useState({
     datos: [],
-    loading:true
-    
+    loading: true,
   });
 
-  //Estado para manejar el input para buscar
-  const [buscarBadge, setBuscarBadge]=useState({
-    nombre:''
-  })
+  const [buscarBadge, setBuscarBadge] = useState({
+    nombre: "",
+  });
 
-  
- useEffect(() => {
-    
-    getData()
+  useEffect(() => {
+    getData();
 
-    return () => {
-      
-    }
-  }, [])
+    return () => {};
+  }, []);
 
-    const getData= async ()=>{
+  const handleChange = ({ target }) => {
+    setBuscarBadge({
+      nombre: target.value,
+    });
+  };
 
-      const resp= await fetch("http://localhost:3004/data")
-      const data = await resp.json()
+  const newBadges = data.datos.filter((badge) => {
+    return badge.firstName
+      .toLowerCase()
+      .includes(buscarBadge.nombre.toLowerCase());
+  });
 
-      setData({
-        datos:data,
-        loading:false
-      })
+  const getData = async () => {
+    const resp = await fetch("http://localhost:3004/data");
+    const data = await resp.json();
 
-
-    }
-
-    //funcion para maejar cuando cambia el contenido del input
-    const handleChange=({target})=>{
-        setBuscarBadge({
-          nombre:target.value
-        })
-    }
-
-    //Filtro para los datos de la busqueda
-    const newData =data.datos.filter(badge=>{
-      return badge.firstName.toLowerCase().includes(buscarBadge.nombre.toLowerCase())
-    })
-
-    
-
-    
+    setData({
+      datos: data,
+      loading: false,
+    });
+  };
 
   return (
     <>
@@ -69,11 +57,18 @@ export default function Badges() {
         </div>
         <div className="row">
           <div className="col-6 offset-3">
-              {data.loading ? <h3>Loading...</h3> :
-              
-              <BadgeList data={newData} handleChange={handleChange} buscarBadge={buscarBadge} />
-              }
-          
+            {!data.loading && (
+              <BadgesBar
+                buscarBadge={buscarBadge}
+                handleChange={handleChange}
+              />
+            )}
+
+            {data.loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <BadgeList data={newBadges} />
+            )}
           </div>
         </div>
       </div>

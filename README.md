@@ -1,8 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado usando [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Para ejecutar el proyecto
 
-In the project directory, you can run:
+En el directorio del proyecto ejecutar los siguientes Script:
+
+### `npm run serv`
 
 ### `npm start`
 
